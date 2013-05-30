@@ -13,7 +13,7 @@ while response != "q"
 
     shelter.pets.each do |pet|
       puts pet
-      end
+    end
   elsif response == "a"
     puts "Which pet would you like?"
     pet_to_adopt = gets.chomp.capitalize
@@ -21,7 +21,18 @@ while response != "q"
 
     puts "What is your first name?"
     client_name = gets.chomp.capitalize
-    clients = Client.new(client_name)
+    client = Client.new(client_name)
+    client.pets << pet_to_adopt
+  elsif response == "g"
+    puts "What is your first name?"
+    client_name = gets.chomp.capitalize
+    client = Client.new(client_name)
+
+    puts "What pet would you like to give up?"
+    pet_to_give = gets.chomp.capitalize
+    client.pets.delete(pet_to_give)
+    shelter.pets << pet_to_give
+
         
   end
   print "Do you want to (l)ist available pets, (a)dopt a pet, (g)ive up a pet, or (q)uit?"
