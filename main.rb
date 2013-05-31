@@ -32,7 +32,8 @@ while response != "q"
     pet_to_give = gets.chomp.capitalize
     client.pets.delete(pet_to_give)
     shelter.pets << pet_to_give
-
+  else
+    puts "You need to pick a correct response."
         
   end
   print "Do you want to (l)ist available pets, (a)dopt a pet, (g)ive up a pet, or (q)uit?"
