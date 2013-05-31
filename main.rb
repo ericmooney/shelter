@@ -15,14 +15,19 @@ while response != "q"
       puts pet
     end
   elsif response == "a"
-    puts "Which pet would you like?"
-    pet_to_adopt = gets.chomp.capitalize
-    shelter.pets.delete(pet_to_adopt)
-
     puts "What is your first name?"
     client_name = gets.chomp.capitalize
     client = Client.new(client_name)
-    client.pets << pet_to_adopt
+
+    puts "Which pet would you like?"
+    pet_to_adopt = gets.chomp.capitalize
+    if shelter.pets.include?(pet_to_adopt)
+      shelter.pets.delete(pet_to_adopt)
+      client.pets << pet_to_adopt
+    else
+      puts "That pet is not in the shelter"
+    end
+
   elsif response == "g"
     puts "What is your first name?"
     client_name = gets.chomp.capitalize
