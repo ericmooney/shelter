@@ -3,7 +3,7 @@ class Shelter
 
   def initialize
     @pets = ["Fido", "Fuzzy", "Rover", "Skinny"]
-    @clients = ["John", "Jane", "Jim", "Jack"]
+    @clients = []
   end
 
 end
